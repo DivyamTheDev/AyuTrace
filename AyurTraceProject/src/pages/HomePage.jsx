@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-herbs.jpg";
+import heroImage from "@/assets/leaves.jpg";
 
 const HomePage = () => {
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -65,7 +66,7 @@ const HomePage = () => {
         variants={containerVariants}
         className="hero-gradient relative overflow-hidden py-20"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(222, 204, 178, 0.9), rgba(222, 204, 178, 0.7)), url(${heroImage})`,
+          backgroundImage: `linear-gradient(120deg, rgba(200, 204, 178, 0.9), rgba(160, 204, 178, 0.7)), url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
