@@ -31,5 +31,7 @@ AyurTrace is a web application designed to help users trace and understand Ayurv
    git clone https://github.com/vishal12766/AyurTrace.git
    cd AyurTrace
    cd AyurTraceProject
+   npm install
    npm run dev
+
 
