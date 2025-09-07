@@ -74,7 +74,7 @@ const HomePage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold text-foreground mb-6 animate-fade-in-up animate-pulse"
+              className="text-5xl md:text-7xl font-bold text-foreground mb-6 animate-fade-in-up"
             >
               Trace the Purity of
               <span className="block text-primary">
@@ -97,7 +97,7 @@ const HomePage = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="btn-nature text-lg px-8 py-6 animate-bounce-in rounded-lg"
+                className="text-lg px-8 py-6 border-primary border-[1px] text-primary hover:bg-primary bg-transparent hover:text-primary-foreground rounded-lg"
               >
                 <Link to="/consumer">
                   Start Tracing <ArrowRight className="ml-2 h-5 w-5" />
@@ -177,16 +177,16 @@ const HomePage = () => {
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="nature-card h-full border-border/20">
+                  <Card className="bg-[#8f664a] h-full border-border/20 ">
                     <CardHeader className="text-center">
                       <motion.div
                         whileHover={{ rotate: [0, -10, 10, 0] }}
                         transition={{ duration: 0.5 }}
-                        className="mx-auto mb-4 p-4 rounded-full bg-primary/20 w-fit"
+                        className="mx-auto mb-4 p-4 rounded-full bg-primary/20 w-fit "
                       >
-                        <Icon className="h-8 w-8 text-primary" />
+                        <Icon className="h-8 w-8 text-primary " />
                       </motion.div>
-                      <CardTitle className="text-xl text-card-foreground">
+                      <CardTitle className="text-xl ">
                         {feature.title}
                       </CardTitle>
                     </CardHeader>
