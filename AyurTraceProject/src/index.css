@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ayurvedic Herb Traceability System Design System
+Nature-inspired colors and botanical theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base Colors - Nature Inspired Palette */
+    --background: 36 31% 85%; /* #DECCB2 light beige */
+    --foreground: 95 37% 17%; /* #27391C dark green */
+    
+    /* Card and Surface Colors */
+    --card: 30 37% 22%; /* #462E1A dark earthy brown */
+    --card-foreground: 36 31% 85%;
+    
+    /* Popover Colors */
+    --popover: 30 37% 22%;
+    --popover-foreground: 36 31% 85%;
+    
+    /* Primary Colors - Reddish Brown Accent */
+    --primary: 0 61% 40%; /* #A52A2A reddish brown */
+    --primary-foreground: 36 31% 95%;
+    
+    /* Secondary Colors - Earthy Tones */
+    --secondary: 30 37% 22%; /* #462E1A */
+    --secondary-foreground: 36 31% 85%;
+    
+    /* Muted Colors */
+    --muted: 95 37% 17%; /* #27391C */
+    --muted-foreground: 36 31% 75%;
+    
+    /* Accent Colors */
+    --accent: 0 61% 40%; /* #A52A2A */
+    --accent-foreground: 36 31% 95%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 36 31% 95%;
+    --success: 120 61% 34%;
+    --success-foreground: 36 31% 95%;
+    
+    /* Border and Input */
+    --border: 95 37% 17%;
+    --input: 30 37% 22%;
+    --ring: 0 61% 40%;
+    
+    /* Border Radius */
+    --radius: 0.75rem;
+    
+    /* Custom Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(36 31% 80%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(30 37% 20%));
+    --gradient-nature: linear-gradient(120deg, hsl(95 37% 17%), hsl(95 37% 25%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--foreground) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.2);
+    --shadow-nature: 0 8px 40px hsl(95 37% 17% / 0.15);
+    
+    /* Animation Timing */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Darker nature theme for dark mode if needed */
+    --background: 30 37% 15%;
+    --foreground: 36 31% 85%;
+    --card: 30 37% 12%;
+    --card-foreground: 36 31% 85%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(36 31% 80%));
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Card Styles */
+  .nature-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-nature);
+    transition: var(--transition-smooth);
+  }
+  
+  .nature-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Button Styles */
+  .btn-nature {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transition: var(--transition-bounce);
+  }
+  
+  .btn-nature:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Navigation Styles */
+  .nav-nature {
+    background: var(--gradient-nature);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out forwards;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+  }
+  to {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+  }
+}
