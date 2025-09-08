@@ -98,7 +98,8 @@ const HomePage = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="text-lg px-8 py-6 border-primary border-[1px] text-primary hover:bg-primary bg-transparent hover:text-primary-foreground rounded-lg"
+                className="hover:text-primary-foreground hover:shadow-glow rounded-lg text-lg"
+
               >
                 <Link to="/consumer">
                   Start Tracing <ArrowRight className="ml-2 h-5 w-5" />
