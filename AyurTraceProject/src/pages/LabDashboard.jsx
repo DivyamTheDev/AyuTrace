@@ -179,7 +179,7 @@ const LabDashboard = () => {
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-border/30">
+                    <TableRow className="border-border/30 text-left underline">
                       <TableHead className="text-card-foreground">Sample ID</TableHead>
                       <TableHead className="text-card-foreground">Herb Name</TableHead>
                       <TableHead className="text-card-foreground">Collector</TableHead>
@@ -204,7 +204,7 @@ const LabDashboard = () => {
                           }}
                           className="border-border/30 hover:bg-card-foreground/5"
                         >
-                          <TableCell className="font-medium text-card-foreground">
+                          <TableCell className="font-medium text-card-foreground ">
                             {sample.id}
                           </TableCell>
                           <TableCell className="text-card-foreground">
@@ -222,7 +222,7 @@ const LabDashboard = () => {
                               transition={{ duration: 0.2 }}
                             >
                               <Badge className={getStatusColor(sample.status)}>
-                                <span className="flex items-center">
+                                <span className="flex items-center p-2">
                                   {getStatusIcon(sample.status)}
                                   <span className="ml-1">{sample.status}</span>
                                 </span>
@@ -257,7 +257,7 @@ const LabDashboard = () => {
                                       />
                                     ) : (
                                       <>
-                                        <Upload className="h-3 w-3 mr-1" />
+                                        <Upload className="h-7 w-3 mr-1 " />
                                         Upload Results
                                       </>
                                     )}
@@ -275,7 +275,7 @@ const LabDashboard = () => {
                                     variant="outline"
                                     className="text-xs border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                                   >
-                                    <Download className="h-3 w-3 mr-1" />
+                                    <Download className="h-7 w-3 mr-1" />
                                     Certificate
                                   </Button>
                                 </motion.div>

@@ -179,14 +179,14 @@ const HomePage = () => {
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="bg-[#8f664a] h-full border-border/20 ">
+                  <Card className="bg-[#5f3c25] h-full border-border/20 ">
                     <CardHeader className="text-center">
                       <motion.div
                         whileHover={{ rotate: [0, -10, 10, 0] }}
                         transition={{ duration: 0.5 }}
-                        className="mx-auto mb-4 p-4 rounded-full bg-primary/20 w-fit "
+                        className="mx-auto mb-4 p-4 rounded-full bg-primary/20 w-fit bg-nature-brown"
                       >
-                        <Icon className="h-8 w-8 text-primary " />
+                        <Icon className="h-8 w-8 text-red-600 " />
                       </motion.div>
                       <CardTitle className="text-xl ">
                         {feature.title}

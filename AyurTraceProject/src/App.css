@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Dark background for camera select dropdown */
+.html5-qrcode-camera-selector,
+.html5-qrcode-button {
+  background-color: #1f2937 !important;  /* Tailwind bg-gray-800 */
+  color: white !important;
+  border-radius: 0.375rem !important;    /* rounded-md */
+  border: none !important;
+}

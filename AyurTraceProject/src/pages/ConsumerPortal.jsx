@@ -7,12 +7,16 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Camera from "@/components/ui/camera";
 
 const ConsumerPortal = () => {
   const [qrCode, setQrCode] = useState("");
   const [traceData, setTraceData] = useState(null);
   const [isScanning, setIsScanning] = useState(false);
   const [showResults, setShowResults] = useState(false);
+
+
+  
 
   // Sample trace data
   const sampleTraceData = {
@@ -139,6 +143,7 @@ const ConsumerPortal = () => {
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
+                  <Camera />
                   <Input
                     placeholder="Enter QR code or scan with camera"
                     value={qrCode}

@@ -300,7 +300,7 @@ const AdminDashboard = () => {
                           <h4 className="font-semibold text-card-foreground">{region.region}</h4>
                           <Badge variant="secondary">{region.percentage}%</Badge>
                         </div>
-                        <div className="flex flex-wrap gap-1">
+                        <div className="flex flex-wrap gap-1 ">
                           {region.herbs.map((herb, herbIndex) => (
                             <motion.span
                               key={herb}
@@ -310,7 +310,7 @@ const AdminDashboard = () => {
                                 duration: 0.3,
                                 delay: (index * 0.1) + (herbIndex * 0.05)
                               }}
-                              className="inline-flex items-center text-xs bg-primary/20 text-primary px-2 py-1 rounded-full"
+                              className="inline-flex items-center text-xs bg-red-100 text-primary px-2 py-1 rounded-full text-[#006400]"
                             >
                               <Leaf className="h-3 w-3 mr-1" />
                               {herb}
@@ -371,7 +371,7 @@ const AdminDashboard = () => {
                         </motion.div>
                         <div className="flex-1">
                           <p className="text-sm font-medium">{alert.message}</p>
-                          <p className="text-xs opacity-70 mt-1">{alert.time}</p>
+                          <p className="text-xs mt-1">{alert.time}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -386,7 +386,7 @@ const AdminDashboard = () => {
                 <CardHeader>
                   <CardTitle className="text-card-foreground">Quick Actions</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
+                <CardContent className="space-y-3 ">
                   {[
                     { label: "Export Monthly Report", icon: BarChart3 },
                     { label: "System Backup", icon: Shield },
@@ -400,7 +400,7 @@ const AdminDashboard = () => {
                     >
                       <Button
                         variant="outline"
-                        className="w-full justify-start border-border/30 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                        className="w-full justify-start border-border/30 hover:bg-primary bg-red-800 rounded-md hover:text-primary-foreground hover:border-primary"
                       >
                         <action.icon className="h-4 w-4 mr-2" />
                         {action.label}
