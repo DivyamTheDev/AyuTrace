@@ -213,7 +213,7 @@ const HomePage = () => {
         variants={containerVariants}
         className="py-20 bg-muted/10"
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 mb-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={itemVariants}>
               <h2 className="text-4xl font-bold text-foreground mb-6">

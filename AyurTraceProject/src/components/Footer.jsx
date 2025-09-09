@@ -46,7 +46,7 @@ const Footer = () => {
           {/* Contact */}
           <div className="flex flex-col space-y-3">
             <h4 className="text-lg font-semibold text-card-foreground">Contact</h4>
-            <p className="text-sm text-card-foreground/70">support@ayurtrace.com</p>
+            <a href="#" className="text-sm text-card-foreground/70 hover:text-blue-600">support@ayurtrace.com</a>
             <p className="text-sm text-card-foreground/70">+91 98765 43210</p>
             <div className="flex space-x-4 mt-2">
               <motion.div whileHover={{ scale: 1.2 }} className="cursor-pointer">
@@ -65,7 +65,7 @@ const Footer = () => {
           <div className="flex flex-col items-start space-y-3">
             <h4 className="text-lg font-semibold text-card-foreground">Made with Love</h4>
             <div className="flex items-center space-x-2 text-card-foreground/70">
-              <span className="text-sm">by our team</span>
+              <span className="text-sm ml-5">by our team</span>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}

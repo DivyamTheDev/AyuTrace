@@ -130,7 +130,7 @@ const CollectorDashboard = () => {
                         id="herbName"
                         value={formData.herbName}
                         onChange={(e) => setFormData({ ...formData, herbName: e.target.value })}
-                        className="placeholder-gray-400 bg-black rounded-sm border-border/30 focus:border-primary focus:ring-primary/20"
+                        className="placeholder-gray-400 text-black bg-gray-200 rounded-sm border-border/30 focus:border-primary focus:ring-primary/20"
                         placeholder="e.g., Ashwagandha"
                         required
                       />
@@ -149,7 +149,7 @@ const CollectorDashboard = () => {
                         id="location"
                         value={formData.location}
                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                        className="placeholder-gray-400 bg-black rounded-sm border-border/30 focus:border-primary focus:ring-primary/20"
+                        className="placeholder-gray-400 text-black bg-gray-200 rounded-sm border-border/30 focus:border-primary focus:ring-primary/20"
                         placeholder="e.g., Kerala Hills"
                         required
                       />
@@ -168,7 +168,7 @@ const CollectorDashboard = () => {
                         id="quantity"
                         value={formData.quantity}
                         onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                        className="placeholder-gray-400 bg-black rounded-sm border-border/30 focus:border-primary focus:ring-primary/20"
+                        className="placeholder-gray-400 text-black bg-gray-200 rounded-sm border-border/30 focus:border-primary focus:ring-primary/20"
                         placeholder="e.g., 25 kg"
                         required
                       />
@@ -187,7 +187,7 @@ const CollectorDashboard = () => {
                         id="notes"
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                        className="placeholder-gray-400 bg-black rounded-sm border-border/30 focus:border-primary focus:ring-primary/20"
+                        className="placeholder-gray-400 text-black bg-gray-200 rounded-sm border-border/30 focus:border-primary focus:ring-primary/20"
                         placeholder="Weather conditions, quality observations..."
                         rows={3}
                       />

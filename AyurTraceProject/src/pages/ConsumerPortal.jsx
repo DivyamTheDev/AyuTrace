@@ -143,7 +143,10 @@ const ConsumerPortal = () => {
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Camera />
+
+                  {/* Camera */}
+                  <Camera setQrCode={setQrCode} />
+
                   <Input
                     placeholder="Enter QR code or scan with camera"
                     value={qrCode}

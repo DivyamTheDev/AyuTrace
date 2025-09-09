@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 
-const Camera = () => {
+const Camera = ({ setQrCode }) => {   // receive setQrCode from props
     const [cameraOpen, setCameraOpen] = useState(false);
-    const [qrCode, setQrCode] = useState("");
     const scannerRef = useRef(null);
 
     useEffect(() => {
@@ -13,11 +12,11 @@ const Camera = () => {
 
             scannerRef.current.render(
                 (decodedText, decodedResult) => {
-                    setQrCode(decodedText);
+                    setQrCode(decodedText);   // update QR code in parent
                     stopCamera();
                 },
                 (error) => {
-                    //nothing happens if camera does not detect a QR code
+                    // Do nothing if QR not detected
                 }
             );
         }
@@ -60,7 +59,6 @@ const Camera = () => {
                         <div id="reader" className="w-full aspect-square rounded-lg overflow-hidden border-2 border-gray-200"
                             style={{ backgroundColor: "#000" }}>
                         </div>
-
                         <button
                             onClick={stopCamera}
                             className="w-full py-2.5 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-md"
@@ -68,21 +66,6 @@ const Camera = () => {
                             Cancel
                         </button>
                     </div>
-                </div>
-            )}
-
-            {qrCode && (
-                <div className="mt-6 bg-black p-5 rounded-xl shadow-md w-full max-w-md border border-gray-100">
-                    <h3 className="text-lg font-semibold text-white mb-2">Scanned Result</h3>
-                    <div className="p-3 bg-gray-50 rounded-lg">
-                        <p className="text-gray-700 break-words font-mono text-sm">{qrCode}</p>
-                    </div>
-                    <button
-                        onClick={() => setQrCode("")}
-                        className="mt-4 px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors"
-                    >
-                        Clear Result
-                    </button>
                 </div>
             )}
         </div>
