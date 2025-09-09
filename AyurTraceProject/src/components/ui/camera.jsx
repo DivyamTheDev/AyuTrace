@@ -7,7 +7,7 @@ const Camera = ({ setQrCode }) => {   // receive setQrCode from props
 
     useEffect(() => {
         if (cameraOpen) {
-            const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+            const config = { fps: 10, qrbox: { width: 250, height: 250 }, facingMode: "environment" };
             scannerRef.current = new Html5QrcodeScanner("reader", config, false);
 
             scannerRef.current.render(

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { Leaf, Home, Users, FlaskConical, Factory, ShoppingCart, Settings } from "lucide-react";
+import { Leaf, Home, Users, FlaskConical, Factory, ShoppingCart, Settings, LogIn } from "lucide-react"; // Added LogIn icon
+import LoginForm from "../pages/LoginPage";
 
 const Navigation = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const Navigation = () => {
     { path: "/processor", icon: Factory, label: "Processor" },
     { path: "/consumer", icon: ShoppingCart, label: "Consumer" },
     { path: "/admin", icon: Settings, label: "Admin" },
+    { path: "/login", icon: LogIn, label: "Login" }, // Added Login item
   ];
 
   return (
@@ -77,8 +79,7 @@ const Navigation = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
-                className="absolute right-0 mt-2 w-48 bg-[#1B2C08] 
- border border-border rounded-lg shadow-lg z-50 flex flex-col"
+                className="absolute right-0 mt-2 w-48 bg-[#1B2C08] border border-border rounded-lg shadow-lg z-50 flex flex-col"
               >
                 {navItems.map((item) => {
                   const Icon = item.icon;
@@ -88,9 +89,9 @@ const Navigation = () => {
                       key={item.path}
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`flex items-center space-x-2 px-4 py-3 text-sm rounded-lg transition-colors text-white  ${isActive
-                          ? "bg-primary text-primary-foreground"
-                          : "hover:bg-card-foreground/10 text-card-foreground"
+                      className={`flex items-center space-x-2 px-4 py-3 text-sm rounded-lg transition-colors text-white ${isActive
+                        ? "bg-primary text-primary-foreground"
+                        : "hover:bg-card-foreground/10 text-card-foreground"
                         }`}
                     >
                       <Icon className="h-4 w-4" />
@@ -101,8 +102,6 @@ const Navigation = () => {
               </motion.div>
             )}
           </div>
-
-
         </div>
       </div>
     </motion.nav>

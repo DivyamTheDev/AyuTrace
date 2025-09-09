@@ -11,6 +11,8 @@ import ConsumerPortal from "./pages/ConsumerPortal";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
+import LoginForm from "./pages/LoginPage";
+import SignupForm from "./pages/SignupPage";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,8 @@ const App = () => (
             <Route path="/processor" element={<ProcessorDashboard />} />
             <Route path="/consumer" element={<ConsumerPortal />} />
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/signup" element={<SignupForm />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

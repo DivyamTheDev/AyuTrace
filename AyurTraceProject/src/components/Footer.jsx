@@ -7,10 +7,10 @@ const Footer = () => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-      className="nav-nature border-t border-border/20 mt-20 bg-muted/5"
+      className="nav-nature border-t border-border/20 mt-20 bg-muted/5 "
     >
       <div className="container mx-auto px-6 py-12">
-        <div className="flex flex-col lg:flex-row justify-between gap-12">
+        <div className="flex flex-col sm lg:flex-row justify-between gap-12 ">
           
           {/* Logo */}
           <div className="flex flex-col space-y-4">
