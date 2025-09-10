@@ -165,95 +165,67 @@ const Camera = ({ setQrCode }) => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center -mt-8 w-full max-w-2xl mx-auto p-4 text-white">
+        <div className="flex flex-col items-center justify-center -mt-8 w-full max-w-2xl mx-auto p-4 text-white ">
             <button
                 onClick={openCamera}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition-all duration-200 hover:shadow-lg active:scale-95"
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition-all duration-200 hover:shadow-lg active:scale-95 flex items-center gap-2 mt-4 top-10"
             >
                 Scan QR Code
             </button>
 
             {cameraOpen && (
-                <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                    <div className="bg-gray-900 rounded-xl shadow-2xl p-6 w-full max-w-md space-y-4 animate-fade-in border border-gray-700">
-                        {/* Header with camera switch */}
-                        <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-white">Scan QR Code</h3>
-                            {availableCameras.length > 1 && (
-                                <button
-                                    onClick={switchCamera}
-                                    className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-md transition-all duration-200 hover:scale-105 font-medium"
-                                >
-                                    <svg 
-                                        className="w-4 h-4" 
-                                        fill="none" 
-                                        stroke="currentColor" 
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path 
-                                            strokeLinecap="round" 
-                                            strokeLinejoin="round" 
-                                            strokeWidth={2} 
-                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" 
-                                        />
-                                    </svg>
-                                    Switch
-                                </button>
-                            )}
-                        </div>
-                        
-                        {/* Camera reader */}
-                        <div 
-                            id="reader" 
-                            className="w-full aspect-square rounded-lg overflow-hidden border-2 border-gray-600 bg-black"
-                        >
-                        </div>
-                        
-                        {/* Camera info - with better contrast */}
-                        <div className="text-sm text-gray-300 text-center bg-gray-800 rounded-md p-2">
-                            <span className="font-medium">Using:</span> {getCameraLabel()}
-                            {availableCameras.length > 1 && (
-                                <span className="ml-2 text-blue-400">
-                                    ({availableCameras.findIndex(c => c.deviceId === currentCameraId) + 1}/{availableCameras.length})
-                                </span>
-                            )}
-                        </div>
-                        
-                        {/* Action buttons */}
-                        <div className="space-y-2">
-                            {/* Switch camera button (full width for better mobile UX) */}
-                            {availableCameras.length > 1 && (
-                                <button
-                                    onClick={switchCamera}
-                                    className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-md flex items-center justify-center gap-2"
-                                >
-                                    <svg 
-                                        className="w-5 h-5" 
-                                        fill="none" 
-                                        stroke="currentColor" 
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path 
-                                            strokeLinecap="round" 
-                                            strokeLinejoin="round" 
-                                            strokeWidth={2} 
-                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" 
-                                        />
-                                    </svg>
-                                    Switch Camera ({availableCameras.length} available)
-                                </button>
-                            )}
-                            
-                            <button
-                                onClick={stopCamera}
-                                className="w-full py-2.5 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-md border border-gray-600"
-                            >
-                                Cancel
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+    <div>
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
+        <div className="bg-gray-900 rounded-xl shadow-2xl p-6 max-w-sm w-full mx-4 space-y-4 animate-fade-in border border-gray-700">
+            {/* Header with camera switch */}
+            <div className="flex items-center justify-between">
+                <h3 className="text-lg font-semibold text-white">Scan QR Code</h3>
+                {availableCameras.length > 1 && (
+                    <button
+                        onClick={switchCamera}
+                        className="flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-md transition-all duration-200 hover:scale-105 font-medium"
+                    >
+                        Switch
+                    </button>
+                )}
+            </div>
+            
+            {/* Camera reader */}
+            <div 
+                id="reader" 
+                className="w-full aspect-square rounded-lg overflow-hidden border-2 border-gray-600 bg-black "
+            >
+            </div>
+            
+            {/* Camera info */}
+            <div className="text-sm text-gray-300 text-center bg-gray-800 rounded-md p-2">
+                <span className="font-medium">Using:</span> {getCameraLabel()}
+            </div>
+            
+            {/* Action buttons */}
+            <div className="space-y-2">
+                {availableCameras.length > 1 && (
+                    <button
+                        onClick={switchCamera}
+                        className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-md flex items-center justify-center gap-2"
+                    >
+                        Switch Camera ({availableCameras.length} available)
+                    </button>
+                )}
+                
+                <button
+                    onClick={stopCamera}
+                    className="w-full py-2.5 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-lg transition-all duration-200 hover:shadow-md border border-gray-600"
+                >
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+)}
+
+
         </div>
     );
 };

@@ -15,9 +15,6 @@ const ConsumerPortal = () => {
   const [isScanning, setIsScanning] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
-
-  
-
   // Sample trace data
   const sampleTraceData = {
     productId: "AYR-ASH-2024-001",
@@ -127,37 +124,41 @@ const ConsumerPortal = () => {
 
         {!showResults ? (
           /* QR Code Scanner Section */
-          <motion.div variants={itemVariants} className="max-w-2xl mx-auto">
-            <Card className="nature-card">
+         
+           <div variants={itemVariants} className="">
+            {/* Camera Component - Fixed container without motion effects */}
+                <div className="w-auto relative top-40 z-40  bg-transparent ">
+                  <Camera setQrCode={setQrCode} />
+                </div>
+           <div className="max-w-2xl mx-auto">
+             <Card className="nature-card">
               <CardHeader className="text-center">
                 <CardTitle className="flex items-center justify-center text-card-foreground">
                   <QrCode className="h-6 w-6 mr-2 text-primary" />
                   Scan Product QR Code
                 </CardTitle>
-                <CardDescription className="text-card-foreground/70">
+                <CardDescription className="text-card-foreground/70 mb-10">
                   Enter your product's QR code to view its complete traceability information
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <motion.div
-                  whileFocus={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
+                
 
-                  {/* Camera */}
-                  <Camera setQrCode={setQrCode} />
-
+                {/* Input Field - Removed problematic motion effects */}
+                <div className="w-full">
                   <Input
                     placeholder="Enter QR code or scan with camera"
                     value={qrCode}
                     onChange={(e) => setQrCode(e.target.value)}
-                    className="placeholder-black text-lg py-6 bg-background/50 border-border/30 focus:border-primary focus:ring-primary/20 text-center"
+                    className="placeholder-black text-lg py-6 bg-background/50 border-border/30 focus:border-primary focus:ring-primary/20 text-center transition-colors duration-200"
                   />
-                </motion.div>
+                </div>
                 
+                {/* Scan Button - Simplified motion */}
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.1 }}
                 >
                   <Button
                     onClick={handleScan}
@@ -182,10 +183,11 @@ const ConsumerPortal = () => {
                   </Button>
                 </motion.div>
 
-                {/* Demo Button */}
+                {/* Demo Button - Simplified motion */}
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.1 }}
                 >
                   <Button
                     onClick={() => {
@@ -193,14 +195,15 @@ const ConsumerPortal = () => {
                       handleScan();
                     }}
                     variant="outline"
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
                   >
                     Try Demo Product
                   </Button>
                 </motion.div>
               </CardContent>
             </Card>
-          </motion.div>
+           </div>
+          </div>
         ) : (
           /* Traceability Results */
           <AnimatePresence>
