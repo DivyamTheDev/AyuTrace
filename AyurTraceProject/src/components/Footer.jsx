@@ -10,11 +10,12 @@ const Footer = () => {
       className="nav-nature border-t border-border/20 mt-20 bg-muted/5 "
     >
       <div className="container mx-auto px-6 py-12">
-        <div className="flex flex-col sm lg:flex-row justify-between gap-12 ">
-          
+        <div className="flex flex-col items-center text-center lg:flex-row lg:justify-between lg:items-start gap-12">
+
+
           {/* Logo */}
-          <div className="flex flex-col space-y-4">
-            <div className="flex items-center space-x-3">
+          <div className="flex flex-col space-y-4 lg:items-start items-center text-center lg:text-left">
+            <div className="flex items-center space-x-3 -ml-10 lg:ml-10">
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
@@ -22,7 +23,7 @@ const Footer = () => {
               >
                 <Leaf className="h-6 w-6 text-primary" />
               </motion.div>
-              <h3 className="text-lg font-semibold text-card-foreground">AyurTrace</h3>
+              <h3 className="text-lg font-semibold text-card-foreground underline">AyurTrace</h3>
             </div>
             <p className="text-sm text-card-foreground/70 max-w-xs">
               Tracing Ayurvedic herbs from source to shelf. Ensuring authenticity, quality, and transparency.
@@ -31,7 +32,7 @@ const Footer = () => {
 
           {/* How It Works */}
           <div className="flex flex-col space-y-3">
-            <h4 className="text-lg font-semibold text-card-foreground mb-2">How It Works</h4>
+            <h4 className="text-lg font-semibold text-card-foreground mb-2 underline">How It Works</h4>
             <div className="flex items-center space-x-2 text-card-foreground">
               <Leaf className="h-4 w-4 text-green-400" /> <span>Collection from farm</span>
             </div>
@@ -45,10 +46,10 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="flex flex-col space-y-3">
-            <h4 className="text-lg font-semibold text-card-foreground">Contact</h4>
+            <h4 className="text-lg font-semibold text-card-foreground underline">Contact</h4>
             <a href="#" className="text-sm text-card-foreground/70 hover:text-blue-600">support@ayurtrace.com</a>
             <p className="text-sm text-card-foreground/70">+91 98765 43210</p>
-            <div className="flex space-x-4 mt-2">
+            <div className="flex space-x-4 mt-2 ml-7">
               <motion.div whileHover={{ scale: 1.2 }} className="cursor-pointer">
                 <Instagram className="h-5 w-5 text-pink-400" />
               </motion.div>
@@ -63,7 +64,7 @@ const Footer = () => {
 
           {/* Made with Love */}
           <div className="flex flex-col items-start space-y-3">
-            <h4 className="text-lg font-semibold text-card-foreground">Made with Love</h4>
+            <h4 className="text-lg font-semibold text-card-foreground underline">Made with Love</h4>
             <div className="flex items-center space-x-2 text-card-foreground/70">
               <span className="text-sm ml-5">by our team</span>
               <motion.div
@@ -77,7 +78,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-border/20 mt-8 pt-6 text-center">
+        <div className="border-t border-border/70 mt-8 pt-6 text-center">
           <p className="text-sm text-card-foreground/60">
             © 2024 AyurTrace. Preserving the authenticity of Ayurvedic traditions.
           </p>

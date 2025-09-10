@@ -1,8 +1,23 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { QrCode, MapPin, Award, FileText, Leaf, Shield, Clock, User } from "lucide-react";
+import {
+  QrCode,
+  MapPin,
+  Award,
+  FileText,
+  Leaf,
+  Shield,
+  Clock,
+  User,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
@@ -20,48 +35,52 @@ const ConsumerPortal = () => {
     productId: "AYR-ASH-2024-001",
     productName: "Premium Ashwagandha Powder",
     batchNumber: "PR001",
-    
+
     collection: {
       collector: "Ravi Kumar",
       location: "Kerala Hills, India",
       date: "2024-01-15",
       coordinates: { lat: 10.8505, lng: 76.2711 },
       method: "Hand-picked, Traditional",
-      weather: "Dry, 28°C"
+      weather: "Dry, 28°C",
     },
-    
+
     testing: {
       labName: "Ayur Labs Pvt Ltd",
       testDate: "2024-01-16",
       purity: "98.5%",
       contaminants: "None detected",
       activeCompounds: "Withanolides: 2.8%",
-      certificate: "AYL-2024-001"
+      certificate: "AYL-2024-001",
     },
-    
+
     processing: {
       facility: "Green Valley Processing",
       method: "Low-temperature drying",
       processDate: "2024-01-18",
       quality: "Grade A",
-      packaging: "Eco-friendly sealed pouches"
+      packaging: "Eco-friendly sealed pouches",
     },
-    
+
     certifications: [
       { name: "Organic Certified", issuer: "NPOP India", valid: "2025-01-15" },
       { name: "GMP Certified", issuer: "WHO-GMP", valid: "2024-12-31" },
-      { name: "AYUSH Approved", issuer: "Ministry of AYUSH", valid: "2025-06-30" }
-    ]
+      {
+        name: "AYUSH Approved",
+        issuer: "Ministry of AYUSH",
+        valid: "2025-06-30",
+      },
+    ],
   };
 
   const handleScan = async () => {
     if (!qrCode.trim()) return;
-    
+
     setIsScanning(true);
-    
+
     // Simulate QR code scanning and data retrieval
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     setTraceData(sampleTraceData);
     setIsScanning(false);
     setShowResults(true);
@@ -95,17 +114,17 @@ const ConsumerPortal = () => {
 
   const cardVariants = {
     hidden: { scale: 0.8, opacity: 0 },
-    visible: { 
-      scale: 1, 
+    visible: {
+      scale: 1,
       opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 
   return (
     <div className="min-h-screen">
       <Navigation />
-      
+
       <motion.div
         initial="hidden"
         animate="visible"
@@ -124,85 +143,97 @@ const ConsumerPortal = () => {
 
         {!showResults ? (
           /* QR Code Scanner Section */
-         
-           <div variants={itemVariants} className="">
+
+          <div variants={itemVariants} className="">
             {/* Camera Component - Fixed container without motion effects */}
-                <div className="w-auto relative top-40 z-40  bg-transparent ">
-                  <Camera setQrCode={setQrCode} />
-                </div>
-           <div className="max-w-2xl mx-auto">
-             <Card className="nature-card">
-              <CardHeader className="text-center">
-                <CardTitle className="flex items-center justify-center text-card-foreground">
-                  <QrCode className="h-6 w-6 mr-2 text-primary" />
-                  Scan Product QR Code
-                </CardTitle>
-                <CardDescription className="text-card-foreground/70 mb-10">
-                  Enter your product's QR code to view its complete traceability information
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={itemVariants}
+            className="w-auto relative top-24 lg:mb-4 md:mb-4 z-40 flex  bg-transparent ">
+              <Camera setQrCode={setQrCode} />
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={itemVariants}
+              className="max-w-2xl mx-auto -mt-20"
+            >
+              <Card className="nature-card">
+                <CardHeader className="text-center">
+                  <CardTitle className="flex items-center justify-center text-card-foreground">
+                    <QrCode className="h-6 w-6 mr-2 text-primary" />
+                    Scan Product QR Code
+                  </CardTitle>
+                  <CardDescription className="text-card-foreground/70 mb-10  sm:mt-">
+                    Enter your product's QR code to view its complete
+                    traceability information
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {/* Input Field - Removed problematic motion effects */}
+                  <div className="w-full">
+                    <Input
+                      placeholder="Enter QR code or scan with camera"
+                      value={qrCode}
+                      onChange={(e) => setQrCode(e.target.value)}
+                      className="placeholder-black text-lg py-6 bg-background/50 border-border/30 focus:border-primary focus:ring-primary/20 text-center transition-colors duration-200"
+                    />
+                  </div>
 
-                {/* Input Field - Removed problematic motion effects */}
-                <div className="w-full">
-                  <Input
-                    placeholder="Enter QR code or scan with camera"
-                    value={qrCode}
-                    onChange={(e) => setQrCode(e.target.value)}
-                    className="placeholder-black text-lg py-6 bg-background/50 border-border/30 focus:border-primary focus:ring-primary/20 text-center transition-colors duration-200"
-                  />
-                </div>
-                
-                {/* Scan Button - Simplified motion */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.1 }}
-                >
-                  <Button
-                    onClick={handleScan}
-                    disabled={isScanning || !qrCode.trim()}
-                    className="w-full btn-nature text-lg py-6"
+                  {/* Scan Button - Simplified motion */}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.1 }}
                   >
-                    {isScanning ? (
-                      <>
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className="h-5 w-5 border-2 border-current border-t-transparent rounded-full mr-2"
-                        />
-                        Scanning...
-                      </>
-                    ) : (
-                      <>
-                        <QrCode className="h-5 w-5 mr-2" />
-                        Trace Product
-                      </>
-                    )}
-                  </Button>
-                </motion.div>
+                    <Button
+                      onClick={handleScan}
+                      disabled={isScanning || !qrCode.trim()}
+                      className="w-full btn-nature text-lg py-6"
+                    >
+                      {isScanning ? (
+                        <>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{
+                              duration: 1,
+                              repeat: Infinity,
+                              ease: "linear",
+                            }}
+                            className="h-5 w-5 border-2 border-current border-t-transparent rounded-full mr-2"
+                          />
+                          Scanning...
+                        </>
+                      ) : (
+                        <>
+                          <QrCode className="h-5 w-5 mr-2" />
+                          Trace Product
+                        </>
+                      )}
+                    </Button>
+                  </motion.div>
 
-                {/* Demo Button - Simplified motion */}
-                <motion.div
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                  transition={{ duration: 0.1 }}
-                >
-                  <Button
-                    onClick={() => {
-                      setQrCode("AYR-ASH-2024-001");
-                      handleScan();
-                    }}
-                    variant="outline"
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                  {/* Demo Button - Simplified motion */}
+                  <motion.div
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                    transition={{ duration: 0.1 }}
                   >
-                    Try Demo Product
-                  </Button>
-                </motion.div>
-              </CardContent>
-            </Card>
-           </div>
+                    <Button
+                      onClick={() => {
+                        setQrCode("AYR-ASH-2024-001");
+                        handleScan();
+                      }}
+                      variant="outline"
+                      className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                    >
+                      Try Demo Product
+                    </Button>
+                  </motion.div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         ) : (
           /* Traceability Results */
@@ -223,12 +254,17 @@ const ConsumerPortal = () => {
                           {traceData.productName}
                         </h2>
                         <p className="text-card-foreground/70">
-                          Product ID: {traceData.productId} • Batch: {traceData.batchNumber}
+                          Product ID: {traceData.productId} • Batch:{" "}
+                          {traceData.batchNumber}
                         </p>
                       </div>
                       <motion.div
                         animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatDelay: 3,
+                        }}
                       >
                         <Shield className="h-10 w-10 text-success" />
                       </motion.div>
@@ -243,7 +279,10 @@ const ConsumerPortal = () => {
               {/* Journey Timeline */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Collection */}
-                <motion.div variants={cardVariants} whileHover={{ scale: 1.02 }}>
+                <motion.div
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.02 }}
+                >
                   <Card className="nature-card h-full">
                     <CardHeader>
                       <CardTitle className="flex items-center text-card-foreground">
@@ -269,7 +308,8 @@ const ConsumerPortal = () => {
                           <strong>Method:</strong> {traceData.collection.method}
                         </p>
                         <p className="text-xs text-card-foreground/60">
-                          <strong>Conditions:</strong> {traceData.collection.weather}
+                          <strong>Conditions:</strong>{" "}
+                          {traceData.collection.weather}
                         </p>
                       </div>
                     </CardContent>
@@ -277,7 +317,10 @@ const ConsumerPortal = () => {
                 </motion.div>
 
                 {/* Lab Testing */}
-                <motion.div variants={cardVariants} whileHover={{ scale: 1.02 }}>
+                <motion.div
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.02 }}
+                >
                   <Card className="nature-card h-full">
                     <CardHeader>
                       <CardTitle className="flex items-center text-card-foreground">
@@ -295,16 +338,21 @@ const ConsumerPortal = () => {
                       <div className="pt-2 border-t border-border/20">
                         <div className="grid grid-cols-2 gap-2 text-xs">
                           <div>
-                            <strong className="text-success">Purity:</strong><br />
+                            <strong className="text-success">Purity:</strong>
+                            <br />
                             {traceData.testing.purity}
                           </div>
                           <div>
-                            <strong className="text-success">Contaminants:</strong><br />
+                            <strong className="text-success">
+                              Contaminants:
+                            </strong>
+                            <br />
                             {traceData.testing.contaminants}
                           </div>
                         </div>
                         <p className="text-xs text-card-foreground/60 mt-2">
-                          <strong>Active Compounds:</strong> {traceData.testing.activeCompounds}
+                          <strong>Active Compounds:</strong>{" "}
+                          {traceData.testing.activeCompounds}
                         </p>
                       </div>
                     </CardContent>
@@ -312,7 +360,10 @@ const ConsumerPortal = () => {
                 </motion.div>
 
                 {/* Processing */}
-                <motion.div variants={cardVariants} whileHover={{ scale: 1.02 }}>
+                <motion.div
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.02 }}
+                >
                   <Card className="nature-card h-full">
                     <CardHeader>
                       <CardTitle className="flex items-center text-card-foreground">
@@ -322,20 +373,24 @@ const ConsumerPortal = () => {
                     </CardHeader>
                     <CardContent className="space-y-3">
                       <div className="text-sm text-card-foreground/70">
-                        <strong>Facility:</strong> {traceData.processing.facility}
+                        <strong>Facility:</strong>{" "}
+                        {traceData.processing.facility}
                       </div>
                       <div className="text-sm text-card-foreground/70">
-                        <strong>Process Date:</strong> {traceData.processing.processDate}
+                        <strong>Process Date:</strong>{" "}
+                        {traceData.processing.processDate}
                       </div>
                       <div className="pt-2 border-t border-border/20">
                         <p className="text-xs text-card-foreground/60">
                           <strong>Method:</strong> {traceData.processing.method}
                         </p>
                         <p className="text-xs text-card-foreground/60">
-                          <strong>Quality:</strong> {traceData.processing.quality}
+                          <strong>Quality:</strong>{" "}
+                          {traceData.processing.quality}
                         </p>
                         <p className="text-xs text-card-foreground/60">
-                          <strong>Packaging:</strong> {traceData.processing.packaging}
+                          <strong>Packaging:</strong>{" "}
+                          {traceData.processing.packaging}
                         </p>
                       </div>
                     </CardContent>
@@ -358,19 +413,25 @@ const ConsumerPortal = () => {
                           key={cert.name}
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          transition={{ 
-                            duration: 0.5, 
+                          transition={{
+                            duration: 0.5,
                             delay: index * 0.1,
                             type: "spring",
-                            stiffness: 200
+                            stiffness: 200,
                           }}
                           whileHover={{ scale: 1.05 }}
                           className="p-4 bg-success/10 border border-success/30 rounded-lg text-center"
                         >
                           <Award className="h-8 w-8 text-success mx-auto mb-2" />
-                          <h4 className="font-semibold text-card-foreground">{cert.name}</h4>
-                          <p className="text-xs text-card-foreground/70">{cert.issuer}</p>
-                          <p className="text-xs text-success">Valid until: {cert.valid}</p>
+                          <h4 className="font-semibold text-card-foreground">
+                            {cert.name}
+                          </h4>
+                          <p className="text-xs text-card-foreground/70">
+                            {cert.issuer}
+                          </p>
+                          <p className="text-xs text-success">
+                            Valid until: {cert.valid}
+                          </p>
                         </motion.div>
                       ))}
                     </div>
@@ -379,11 +440,11 @@ const ConsumerPortal = () => {
               </motion.div>
 
               {/* Action Buttons */}
-              <motion.div variants={itemVariants} className="flex justify-center space-x-4">
-                <Button
-                  onClick={resetScan}
-                  className="btn-nature"
-                >
+              <motion.div
+                variants={itemVariants}
+                className="flex justify-center space-x-4"
+              >
+                <Button onClick={resetScan} className="btn-nature">
                   Scan Another Product
                 </Button>
                 <Button

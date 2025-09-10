@@ -98,11 +98,11 @@ const HomePage = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="hover:text-primary-foreground hover:shadow-glow rounded-lg text-lg"
+                className="hover:text-primary-foreground hover:shadow-glow rounded-lg text-lg py-3 "
 
               >
                 <Link to="/consumer">
-                  Start Tracing <ArrowRight className="ml-2 h-5 w-5" />
+                  Start Tracing <ArrowRight className="ml-2 h-10 w-5 " />
                 </Link>
               </Button>
               
@@ -219,7 +219,7 @@ const HomePage = () => {
               <h2 className="text-4xl font-bold text-foreground mb-6">
                 Complete Transparency in Every Step
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-lg font-semibold mb-8">
                 Our comprehensive traceability system ensures that every herb 
                 in your wellness journey meets the highest standards of authenticity 
                 and quality that Ayurveda demands.
